@@ -1,0 +1,49 @@
+# ARMcreative Portfolio Website
+
+**Version:** 1.0  
+**Author:** ARMcreative  
+**License:** MIT
+
+---
+
+A modern, premium portfolio website built with vanilla HTML, CSS, and JavaScript.
+
+## Features
+
+- Dark mode first design with glassmorphism effects
+- Smooth scroll navigation (Lenis-like implementation)
+- Custom cursor with hover effects
+- Particle background animation with mouse interaction
+- Scroll reveal animations with stagger effects
+- 3D tilt effect on cards
+- Magnetic button effects
+- Parallax on mouse move
+- Typing animation
+- Portfolio filtering
+- Testimonial carousel with drag/swipe support
+- Mobile responsive
+- SEO optimized
+- Accessibility compliant
+
+## Tech Stack
+
+- HTML5
+- CSS3 (Custom Properties, Glassmorphism, Animations)
+- Vanilla JavaScript (ES6+)
+
+## Getting Started
+
+Simply open `index.html` in your browser. No build tools required.
+
+## Version History
+
+### v1.0 - Initial Release
+- Full portfolio website implementation
+- All sections: Hero, About, Skills, Portfolio, Experience, Testimonials, Contact
+- Premium animations and effects
+- Performance optimizations
+- Accessibility features
+
+---
+
+© 2026 ARMcreative. All rights reserved.

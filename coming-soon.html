@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Sundcode Nusantara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .coming-soon-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 24px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cs-content {
+            max-width: 600px;
+            padding: 60px 40px;
+            border-radius: var(--radius-xl);
+        }
+
+        .cs-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cs-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cs-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cs-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        [data-theme="light"] .cs-title {
+            background: linear-gradient(135deg, #0F172A, #334155);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+    <div class="stars2" id="stars2"></div>
+    <div class="stars3" id="stars3"></div>
+
+    <!-- Navbar (Minimal) -->
+    <nav class="navbar scrolled">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon-wrap">
+                   <img src="assets/logo.png" alt="Sundcode Logo" width="50" height="50">
+                </div>
+                <div class="logo-text-wrap">
+                    <span class="logo-text">Sundcode</span>
+                    <span class="logo-subtext">NUSANTARA</span>
+                </div>
+            </a>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="coming-soon-wrapper">
+        <div class="cs-glow"></div>
+        <div class="cs-content glass">
+            <div class="cs-icon">🚀</div>
+            <h1 class="cs-title">Coming Soon</h1>
+            <p class="cs-description">Produk ini sedang dalam tahap pengembangan intensif untuk memberikan pengalaman terbaik bagi bisnis Anda. Nantikan peluncurannya segera!</p>
+            <div class="cs-actions">
+                <a href="products.html" class="btn btn-gradient btn-lg">
+                    <span>Kembali ke List Produk</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="footer" style="padding: 32px 0;">
+        <div class="container" style="text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.875rem;">&copy; 2024 Sundcode Nusantara. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

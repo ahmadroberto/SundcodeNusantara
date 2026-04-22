@@ -1,0 +1,458 @@
+Pembuatan Frontend Website Company Profile Fashion Brand
+
+Anda adalah Senior Frontend Engineer & UI/UX Designer yang bertugas membuat frontend website company profile modern untuk perusahaan fashion (pakaian, sepatu, aksesoris).
+
+Website harus:
+
+modern
+elegan
+futuristik
+cepat
+SEO friendly
+responsive
+interaktif
+profesional
+siap production
+
+Website tidak menggunakan CDN.
+Semua asset harus lokal seperti:
+
+font
+icon
+library
+image
+javascript
+1. TEKNOLOGI YANG DIGUNAKAN
+
+Gunakan teknologi modern berikut:
+
+Core
+HTML5 Semantic
+CSS3 Modern
+Vanilla JavaScript ES6+
+Styling
+
+Gunakan kombinasi:
+
+CSS Variables
+Flexbox
+CSS Grid
+Clamp responsive sizing
+Glassmorphism
+Soft shadows
+Smooth animation
+Animasi
+
+Gunakan:
+
+CSS keyframes
+Intersection Observer
+Smooth scrolling
+Hover interaction
+Micro interaction
+SEO
+
+Implementasi:
+
+semantic HTML
+meta tag lengkap
+open graph
+schema structure
+Performance
+
+Optimasi:
+
+lazy loading image
+minified assets
+defer JS
+modular CSS
+2. STRUKTUR PROJECT
+
+Buat struktur project profesional:
+
+fashion-company-profile/
+│
+├── index.html
+├── about.html
+├── products.html
+├── product-detail.html
+├── gallery.html
+├── blog.html
+├── contact.html
+│
+├── assets/
+│
+│   ├── css/
+│   │   ├── style.css
+│   │   ├── layout.css
+│   │   ├── components.css
+│   │   ├── animations.css
+│   │   └── responsive.css
+│
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── slider.js
+│   │   ├── animations.js
+│   │   └── navigation.js
+│
+│   ├── fonts/
+│   │   ├── inter.woff2
+│   │   ├── poppins.woff2
+│
+│   ├── icons/
+│   │   ├── svg icons
+│
+│   ├── images/
+│   │   ├── hero
+│   │   ├── products
+│   │   ├── team
+│   │   └── gallery
+│
+└── README.md
+3. DESAIN VISUAL
+
+Tema:
+
+Modern fashion brand.
+
+Style visual:
+
+minimal
+luxury
+editorial
+clean
+modern fashion
+
+Color palette contoh:
+
+Primary : #111111
+Secondary : #ffffff
+Accent : #c9a96e
+Background : #f7f7f7
+
+Typography:
+
+Heading:
+
+Poppins
+
+Body:
+
+Inter
+
+Semua font harus lokal
+
+4. HALAMAN WEBSITE
+
+Website harus terdiri dari beberapa halaman berikut:
+
+4.1 HOME PAGE (index.html)
+
+Landing page modern fashion brand.
+
+Sections:
+
+Hero Section
+full screen hero
+background video/image
+brand tagline
+CTA button
+smooth scroll
+Featured Collection
+
+Grid produk fashion terbaru.
+
+Brand Story
+
+Story singkat perusahaan.
+
+Highlight Produk
+
+Menampilkan:
+
+sepatu
+pakaian
+aksesoris
+Why Choose Us
+
+Icon + text.
+
+Fashion Gallery
+
+Grid foto editorial.
+
+Testimonial
+
+Slider testimonial pelanggan.
+
+Latest Blog
+
+Preview artikel fashion.
+
+Newsletter
+
+Form subscribe email.
+
+Footer
+
+Berisi:
+
+navigasi
+social media
+copyright
+contact info
+4.2 ABOUT PAGE
+
+Isi halaman:
+
+Company Story
+
+Sejarah brand.
+
+Vision Mission
+Our Team
+
+Grid team member.
+
+Production Process
+
+Visual step produksi fashion.
+
+Factory / Studio Photos
+4.3 PRODUCTS PAGE
+
+Grid katalog produk.
+
+Fitur:
+
+filter kategori
+hover effect
+quick view
+kategori:
+Shoes
+Clothing
+Accessories
+
+Layout:
+
+Product Card
+- image
+- name
+- category
+- button detail
+4.4 PRODUCT DETAIL PAGE
+
+Isi halaman:
+
+product gallery slider
+product name
+description
+materials
+size chart
+related products
+CTA order / contact
+4.5 GALLERY PAGE
+
+Fashion editorial gallery.
+
+Layout:
+
+masonry grid
+lightbox popup
+4.6 BLOG PAGE
+
+List artikel fashion.
+
+Blog card:
+
+image
+title
+excerpt
+read more
+4.7 CONTACT PAGE
+
+Isi halaman:
+
+Form:
+
+nama
+email
+pesan
+
+Tambahan:
+
+map placeholder
+alamat
+whatsapp
+social media
+5. KOMPONEN GLOBAL
+
+Website harus memiliki komponen berikut:
+
+Navbar
+
+Sticky navbar.
+
+Fitur:
+
+transparent
+blur effect
+responsive mobile menu
+Mobile Menu
+
+Hamburger menu.
+
+Animasi slide.
+
+Button Style
+
+Modern button:
+
+hover animation
+gradient effect
+Cards
+
+Digunakan untuk:
+
+produk
+blog
+testimonial
+Image Hover
+
+Fashion style hover:
+
+zoom
+overlay text
+6. ANIMASI WEBSITE
+
+Tambahkan animasi modern.
+
+Contoh:
+
+Scroll Reveal
+
+Menggunakan Intersection Observer.
+
+Hover Animation
+
+Produk zoom.
+
+Fade Up Animation
+Smooth Page Scroll
+Loading Animation
+7. RESPONSIVE DESIGN
+
+Website harus responsive untuk:
+
+Desktop
+Laptop
+Tablet
+Mobile
+
+Gunakan breakpoint:
+
+1400px
+1200px
+992px
+768px
+576px
+
+Gunakan:
+
+CSS clamp
+flexible grid
+8. OPTIMASI SEO
+
+Tambahkan:
+
+Meta Tag
+title
+description
+keywords
+author
+viewport
+Open Graph
+og:title
+og:description
+og:image
+Semantic HTML
+
+Gunakan:
+
+header
+nav
+main
+section
+article
+footer
+9. AKSESIBILITAS
+
+Tambahkan:
+
+alt image
+aria label
+keyboard navigation
+10. PERFORMA WEBSITE
+
+Optimasi:
+
+lazy load images
+preload fonts
+defer JS
+compressed assets
+11. JAVASCRIPT FITUR
+
+Implementasi JS untuk:
+
+Navbar scroll effect
+Product slider
+Gallery lightbox
+Mobile menu
+Scroll animation
+Newsletter form validation
+
+12. UI DETAIL
+
+Detail UI:
+
+smooth hover
+glassmorphism card
+shadow depth
+elegant spacing
+micro interaction
+13. TARGET HASIL
+
+Website harus terlihat seperti:
+
+brand fashion premium
+modern
+clean
+profesional
+layak dijual
+
+Inspirasi desain:
+
+Nike
+Zara
+Off White
+Aesop style minimal
+14. OUTPUT YANG HARUS DIHASILKAN AI
+
+AI harus menghasilkan:
+
+1️⃣ struktur folder lengkap
+2️⃣ seluruh HTML page
+3️⃣ seluruh CSS file
+4️⃣ seluruh JS file
+5️⃣ asset lokal placeholder
+6️⃣ kode rapi dan modular
+7️⃣ komentar kode jelas
+
+15. STANDAR KODE
+
+Gunakan:
+
+clean code
+modular css
+reusable components
+readable indentation

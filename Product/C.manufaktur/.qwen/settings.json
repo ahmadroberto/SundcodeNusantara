@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir *)",
+      "Bash(@findstr *)",
+      "Bash(@echo *)",
+      "Bash(powershell *)",
+      "Bash(f)",
+      "Bash(do *)",
+      "Bash(@powershell *)",
+      "Bash(del *)",
+      "Bash(dir *)"
+    ]
+  },
+  "$version": 3
+}
