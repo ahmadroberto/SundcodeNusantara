@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Katalog Produk Sundcode Nusantara - Solusi Software Custom Premium">
+    <title>Produk - Sundcode Nusantara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Custom styles for product page */
+        .products-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: var(--radius-full);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--glow-primary);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-price span {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+
+        .product-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        [data-theme="light"] .filter-btn {
+            background: white;
+            border-color: rgba(15, 23, 42, 0.1);
+        }
+        
+        @media (max-width: 640px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+    <div class="stars2" id="stars2"></div>
+    <div class="stars3" id="stars3"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon-wrap">
+                   <img src="assets/logo.png" alt="Sundcode Logo" width="50" height="50">
+                </div>
+                <div class="logo-text-wrap">
+                    <span class="logo-text">Sundcode</span>
+                    <span class="logo-subtext">NUSANTARA</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li class="nav-menu-divider"></li>
+                <li class="nav-menu-actions">
+                    <div class="mobile-navbar-actions">
+                        <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+                            <!-- Moon/Sun Icons will be handled by JS -->
+                            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        </button>
+                        <a href="index.html#contact" class="btn btn-gradient btn-sm">Get a Quote</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+                <a href="index.html#contact" class="btn btn-gradient btn-sm">Get a Quote</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Products Hero -->
+    <header class="products-hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <span class="section-tag">💎 Premium Catalog</span>
+            <h1 class="section-title">Katalog Produk Unggulan</h1>
+            <p class="section-subtitle">Temukan solusi software siap pakai dan kustom untuk mengakselerasi bisnis Anda di era digital.</p>
+        </div>
+    </header>
+
+    <!-- Product Listing Section -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Filter 
+            <div class="filter-container">
+                <button class="filter-btn active">Semua</button>
+                <button class="filter-btn">Web Apps</button>
+                <button class="filter-btn">UI/UX Templates</button>
+                <button class="filter-btn">Enterprise</button>
+                <button class="filter-btn">SaaS</button>
+            </div> -->
+
+            <!-- Grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <span class="product-badge">Best Seller</span>
+                        <img src="assets/images/project-1.webp" alt="Nexus Dashboard" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>React</span><span>Node.js</span></div>
+                        <h3>Nexus CRM Dashboard</h3>
+                        <p>Sistem manajemen pelanggan modern dengan fitur analitik real-time dan integrasi WhatsApp.</p>
+                        <div class="product-price">
+                            Rp 2.499.000 <span>Rp 4.500.000</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-2.webp" alt="EcoCommerce" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>Laravel</span><span>Tailwind</span></div>
+                        <h3>EcoCommerce Engine</h3>
+                        <p>Platform e-commerce lengkap dengan sistem manajemen stok, pembayaran otomatis, dan SEO-friendly.</p>
+                        <div class="product-price">
+                            Rp 3.850.000
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <span class="product-badge">New</span>
+                        <img src="assets/images/project-3.webp" alt="Lumina UI Kit" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>Figma</span><span>React</span></div>
+                        <h3>Lumina UI Kit Pro</h3>
+                        <p>Kumpulan komponen UI premium untuk membangun aplikasi SaaS yang memukau dalam hitungan jam.</p>
+                        <div class="product-price">
+                            Rp 899.000 <span>Rp 1.200.000</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Preview</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/dashboard-mockup.webp" alt="Invoicely" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>Python</span><span>Django</span></div>
+                        <h3>Invoicely Enterprise</h3>
+                        <p>Solusi manajemen invoicing dan keuangan untuk perusahaan skala menengah hingga besar.</p>
+                        <div class="product-price">
+                            Rp 5.900.000
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-1.webp" alt="HealthTrack App" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>Flutter</span><span>Firebase</span></div>
+                        <h3>HealthTrack Mobile App</h3>
+                        <p>Aplikasi mobile pelacak kesehatan dengan integrasi wearable devices dan laporan mingguan.</p>
+                        <div class="product-price">
+                            Rp 4.200.000
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="portfolio-card glass product-card">
+                    <div class="portfolio-image">
+                        <img src="assets/images/project-2.webp" alt="LearnFlow LMS" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <span class="overlay-text">Lihat Detail →</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags"><span>PHP</span><span>MySQL</span></div>
+                        <h3>LearnFlow LMS</h3>
+                        <p>Learning Management System yang memudahkan sekolah atau kursus mengelola materi dan ujian online.</p>
+                        <div class="product-price">
+                            Rp 2.750.000
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
+                            <a href="#" class="btn btn-outline btn-sm"><span>Demo</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content glass">
+                <div class="cta-glow"></div>
+                <h2 class="cta-title">Butuh Produk Kustom?</h2>
+                <p class="cta-subtitle">Kami dapat membangun solusi software yang spesifik sesuai dengan alur bisnis unik Anda.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20membutuhkan%20produk%20custom%20dan%20tertarik%20dengan%20layanan%20Sundcode.%20Apakah%20kita%20bisa%20menjadwalkan%20diskusi%20lebih%20lanjut%20untuk%20membahas%20kebutuhan%20bisnis%20kami?" class="btn btn-gradient btn-lg" target="_blank">
+                        <span>Konsultasi Project</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon-wrap">
+                            <img src="assets/logo.png" alt="Sundcode Logo" width="40" height="40">
+                        </div>
+                        <div class="logo-text-wrap">
+                            <span class="logo-text">Sundcode</span>
+                            <span class="logo-subtext">NUSANTARA</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">
+                        Membangun solusi digital premium yang mendorong pertumbuhan bisnis dan meningkatkan kepuasan pengguna.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#">Web Applications</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">UI Kits</a></li>
+                        <li><a href="#">Enterprise Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="index.html#services">Web Development</a></li>
+                        <li><a href="index.html#services">UI/UX Design</a></li>
+                        <li><a href="index.html#contact">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <p class="contact-info">hello@sundcode.com</p>
+                    <div class="social-links" style="flex-direction: row; gap: 15px; margin-top: 10px;">
+                        <a href="#">IG</a>
+                        <a href="#">LI</a>
+                        <a href="#">TW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sundcode Nusantara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
