@@ -1,0 +1,308 @@
+# 🧠 PROMPT AI AGENT — LANDING PAGE JASA KONSULTASI SKRIPSI & PROJECT
+
+## 🎯 OBJECTIVE
+
+Bangun **1 halaman landing page (single page)** yang sangat **high-converting**, modern, clean, dan profesional untuk mempromosikan jasa:
+
+> Konsultasi Skripsi & Pembuatan Aplikasi untuk Mahasiswa
+
+Fokus utama:
+
+* Meningkatkan conversion (WA / order)
+* Membangun trust (bukan terlihat seperti “joki”)
+* Positioning sebagai **mentor + technical expert**
+
+---
+
+## 👤 TARGET AUDIENCE
+
+* Mahasiswa semester akhir
+* Jurusan IT / Sistem Informasi / semua jurusan
+* Masalah utama:
+
+  * Bingung mulai skripsi
+  * Stuck coding
+  * Deadline mepet
+  * Tidak paham metodologi / analisis
+
+---
+
+## 🧱 GENERAL INSTRUCTION
+
+AI agent HARUS:
+
+* Menggunakan **struktur landing page modern (seperti SaaS / startup)**
+* Menggunakan **copywriting profesional (AIDA + PAS framework)**
+* Gunakan bahasa:
+
+  * Santai tapi profesional
+  * Persuasif (tidak berlebihan / scammy)
+* Fokus pada:
+
+  * Benefit, bukan hanya fitur
+  * Pain point mahasiswa
+
+---
+
+## 🎨 DESIGN DIRECTION
+
+* Style: Minimalist modern (mirip startup SaaS)
+* Warna:
+
+  * Primary: Biru / Ungu (trust & tech)
+  * Secondary: Putih + abu soft
+* Font:
+
+  * Clean (Inter / Poppins style)
+* Layout:
+
+  * Banyak whitespace
+  * Card-based UI
+  * CTA kontras
+
+---
+
+## 🧩 STRUCTURE LANDING PAGE (WAJIB URUT)
+
+---
+
+### 1. 🟢 HERO SECTION (CRITICAL)
+
+Tujuan: menarik perhatian dalam 3 detik
+
+#### Elemen:
+
+* Headline besar (strong hook)
+* Subheadline (jelas & spesifik)
+* CTA utama (WhatsApp / Order)
+* Visual (mockup laptop / mahasiswa / dashboard app)
+
+#### Copy guideline:
+
+* Fokus hasil, bukan proses
+
+#### Contoh arah:
+
+"Struggling dengan Skripsi atau Project?"
+"Bangun Aplikasi + Lulus Lebih Cepat dengan Pendampingan Expert"
+
+CTA:
+[ Konsultasi Sekarang ]
+
+---
+
+### 2. 🔥 PROBLEM SECTION (PAIN POINT)
+
+Tujuan: membuat user merasa “ini gue banget”
+
+#### Buat list problem:
+
+* Tidak tahu mulai dari mana
+* Revisi terus ditolak dosen
+* Coding stuck
+* Deadline mepet
+
+Gunakan tone emosional ringan:
+"Capek revisi tapi nggak selesai-selesai?"
+
+---
+
+### 3. 💡 SOLUTION SECTION
+
+Tujuan: positioning sebagai solusi
+
+Isi:
+
+* Jelaskan bahwa ini bukan joki
+* Tapi:
+
+  * Mentor
+  * Partner teknis
+  * Pendamping sampai selesai
+
+Gunakan bullet benefit:
+
+* Dibimbing dari nol
+* Dibantu coding
+* Siap sidang
+
+---
+
+### 4. 📦 PRODUCT PACKAGES (CORE SECTION)
+
+Tujuan: jualan utama
+
+Buat 3 card pricing:
+
+#### 🔵 BASIC — Konsultasi
+
+* Harga: Rp200.000 / sesi
+* Include:
+
+  * Diskusi skripsi
+  * Review
+  * Arahan
+
+#### 🟡 PRO — Pembuatan Aplikasi
+
+* Harga: Rp1.800.000
+* Include:
+
+  * App sesuai kebutuhan
+  * Revisi terbatas
+  * Dokumentasi
+
+#### 🔴 PREMIUM — Full Mentoring
+
+* Harga: Rp4.500.000
+* Highlight (BEST VALUE)
+* Include:
+
+  * Dari nol sampai sidang
+  * App + laporan
+  * Revisi sampai ACC
+
+Tambahkan:
+
+* Badge: “Paling Dipilih”
+* CTA tiap card
+
+---
+
+### 5. ⭐ TRUST / SOCIAL PROOF
+
+Tujuan: meningkatkan kepercayaan
+
+Isi:
+
+* Testimoni (buat dummy realistis)
+* Contoh:
+
+  * "Akhirnya bisa sidang tepat waktu"
+  * "Project jadi + ngerti konsepnya"
+
+Tambahkan:
+
+* Rating bintang
+* Foto avatar (dummy)
+
+---
+
+### 6. 🚀 HOW IT WORKS
+
+Tujuan: menjelaskan alur sederhana
+
+Step:
+
+1. Konsultasi awal
+2. Tentukan kebutuhan
+3. Mulai pengerjaan / mentoring
+4. Selesai & siap sidang
+
+Gunakan icon + step visual
+
+---
+
+### 7. ⚡ URGENCY / OFFER
+
+Tujuan: meningkatkan closing
+
+Contoh:
+
+* Slot terbatas
+* Diskon mahasiswa
+* Bonus:
+
+  * Free konsultasi awal
+
+---
+
+### 8. 📞 FINAL CTA (WAJIB KUAT)
+
+Tujuan: closing
+
+Copy:
+"Jangan tunggu sampai deadline datang"
+"Mulai sekarang, selesaikan skripsimu lebih cepat"
+
+CTA:
+[ Chat WhatsApp Sekarang ]
+
+---
+
+### 9. 🧾 FOOTER
+
+* Kontak
+* WA
+* Instagram
+* Disclaimer:
+  "Layanan ini bersifat pendampingan & edukasi"
+
+---
+
+## 🧠 COPYWRITING RULES (WAJIB)
+
+* Gunakan:
+
+  * Headline kuat
+  * Subheadline jelas
+  * Bullet mudah dibaca
+* Hindari:
+
+  * Bahasa terlalu formal
+  * Klaim berlebihan
+
+---
+
+## 🧑‍💻 TECHNICAL OUTPUT
+
+AI agent harus menghasilkan:
+
+* HTML + CSS (atau React jika diminta)
+* Responsive (mobile-first)
+* Clean structure
+* Reusable components
+
+---
+
+## 🚀 EXTRA (OPSIONAL TAPI DISARANKAN)
+
+Tambahkan:
+
+* Sticky CTA button (WhatsApp)
+* Animasi ringan (hover / fade)
+* Section FAQ:
+
+  * "Apakah ini joki?"
+  * "Apakah aman?"
+
+---
+
+## 🧪 SUCCESS CRITERIA
+
+Landing page dianggap berhasil jika:
+
+* Mudah dipahami dalam 5 detik
+* Jelas siapa targetnya
+* CTA terlihat jelas
+* Harga & paket mudah dibandingkan
+
+---
+
+## ⚠️ IMPORTANT NOTE
+
+* Jangan buat terlalu ramai
+* Fokus ke conversion, bukan dekorasi
+* Prioritaskan readability & clarity
+
+---
+
+## 🔚 FINAL OUTPUT EXPECTATION
+
+AI agent menghasilkan:
+✔ Landing page modern
+✔ Copywriting kuat
+✔ Struktur rapi
+✔ Siap digunakan untuk jualan
+
+---
