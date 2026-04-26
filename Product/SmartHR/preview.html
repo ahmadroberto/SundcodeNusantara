@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartHR - Sistem HR Modern</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    }
+
+    .glass {
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #6366f1, #9333ea);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      transition: 0.3s;
+    }
+
+    .screenshot {
+      transition: transform 0.5s ease;
+    }
+
+    .screenshot:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed w-full z-50 transition">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center glass rounded-b-2xl">
+    <h1 class="text-xl font-bold gradient-text">SmartHR</h1>
+    <div class="flex gap-4">
+      <a href="#" class="hidden md:block">Fitur</a>
+      <a href="#" class="hidden md:block">Produk</a>
+      <a href="#" class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700">
+        Demo
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-32 pb-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h2 class="text-5xl font-bold mb-6 leading-tight" data-aos="fade-up">
+      Sistem HR Modern untuk <span class="gradient-text">Bisnis Berkembang</span>
+    </h2>
+
+    <p class="text-lg text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
+      Kelola karyawan, absensi, dan payroll dalam satu platform yang cepat, rapi, dan profesional.
+    </p>
+
+    <div class="flex justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+      <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700">
+        Mulai Sekarang
+      </a>
+      <a href="#preview" class="border px-6 py-3 rounded-xl">
+        Lihat Preview
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCREENSHOT PREVIEW -->
+<section id="preview" class="py-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <h3 class="text-3xl font-bold mb-10" data-aos="fade-up">
+      Tampilan Aplikasi
+    </h3>
+
+    <div class="relative">
+      <img id="mainImage"
+        src="https://via.placeholder.com/900x500"
+        class="rounded-2xl shadow-xl mx-auto screenshot">
+
+      <div class="flex justify-center gap-4 mt-6">
+        <img src="https://via.placeholder.com/150" class="w-24 cursor-pointer rounded-lg" onclick="changeImage(this)">
+        <img src="https://via.placeholder.com/150" class="w-24 cursor-pointer rounded-lg" onclick="changeImage(this)">
+        <img src="https://via.placeholder.com/150" class="w-24 cursor-pointer rounded-lg" onclick="changeImage(this)">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h3 class="text-3xl font-bold text-center mb-12">Fitur Unggulan</h3>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">👤 Manajemen Karyawan</h4>
+        <p>Kelola data karyawan secara terstruktur dan aman.</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">⏱️ Absensi Real-time</h4>
+        <p>Monitoring kehadiran dengan sistem modern.</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">💰 Payroll Otomatis</h4>
+        <p>Hitung gaji tanpa kesalahan manual.</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">📅 Cuti & Izin</h4>
+        <p>Workflow approval yang rapi dan cepat.</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">📊 Dashboard</h4>
+        <p>Insight bisnis dalam visual modern.</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl feature-card">
+        <h4 class="text-xl font-semibold mb-3">🔐 Secure System</h4>
+        <p>Role & permission tingkat lanjut.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 text-center">
+  <h3 class="text-3xl font-bold mb-6">
+    Siap Upgrade Sistem HR Anda?
+  </h3>
+  <a href="#" class="bg-indigo-600 text-white px-8 py-3 rounded-xl hover:bg-indigo-700">
+    Mulai Sekarang
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-500">
+  <p>© 2026 SmartHR by Sundcode</p>
+</footer>
+
+<!-- JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+
+  function changeImage(el) {
+    document.getElementById('mainImage').src = el.src;
+  }
+
+  window.addEventListener('scroll', function () {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      nav.classList.add('shadow-lg');
+    } else {
+      nav.classList.remove('shadow-lg');
+    }
+  });
+</script>
+
+</body>
+</html>
