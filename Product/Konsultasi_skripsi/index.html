@@ -32,7 +32,7 @@
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
             --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.4);
-            --glow-primary: 0 0 60px rgba(99, 102, 241, 0.3);
+            --glow-primary: 0 0 60px rgba(99, 102, 241, 0.2);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --radius-lg: 16px;
             --radius-xl: 24px;
@@ -65,7 +65,7 @@
         }
 
         .section-padding {
-            padding: 100px 0;
+            padding: clamp(60px, 10vh, 100px) 0;
             position: relative;
             z-index: 1;
         }
@@ -100,6 +100,7 @@
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(20px);
             border-radius: var(--radius-lg);
+            transition: var(--transition);
         }
 
         /* Navbar */
@@ -167,6 +168,7 @@
             cursor: pointer;
             border: none;
             font-size: 0.95rem;
+            gap: 8px;
         }
 
         .btn-gradient {
@@ -207,7 +209,7 @@
 
         /* Hero */
         #hero {
-            padding: 160px 0 100px;
+            padding: clamp(140px, 20vh, 200px) 0 clamp(60px, 10vh, 100px);
             text-align: center;
             position: relative;
         }
@@ -224,11 +226,11 @@
         }
 
         #hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.25rem, 6vw, 4rem);
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
         }
 
         #hero h1 span {
@@ -239,7 +241,7 @@
         }
 
         #hero p {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             max-width: 700px;
@@ -255,7 +257,7 @@
         }
 
         .section-header h2 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-size: clamp(1.85rem, 4vw, 2.75rem);
             font-weight: 700;
             letter-spacing: -1px;
             margin-bottom: 16px;
@@ -263,13 +265,12 @@
 
         .problem-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
 
         .problem-card {
             padding: 32px;
-            transition: var(--transition);
         }
 
         .problem-card:hover {
@@ -287,8 +288,12 @@
         .solution-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            gap: clamp(32px, 8vw, 64px);
             align-items: center;
+        }
+
+        .solution-image-container {
+            position: relative;
         }
 
         .solution-image {
@@ -296,6 +301,11 @@
             border-radius: var(--radius-xl);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .solution-image:hover {
+            transform: scale(1.02);
         }
 
         .solution-list {
@@ -328,31 +338,15 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
             height: 100%;
         }
 
         .pricing-card.popular {
             border: 2px solid var(--primary);
+            background: rgba(99, 102, 241, 0.06);
             transform: scale(1.05);
             z-index: 2;
             box-shadow: var(--glow-primary);
-        }
-
-        @media (max-width: 1100px) {
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-            }
-            .pricing-card.popular {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .popular-badge {
@@ -366,13 +360,13 @@
             border-radius: var(--radius-full);
             font-size: 0.85rem;
             font-weight: 700;
+            white-space: nowrap;
         }
 
         .price {
             font-size: 2.2rem;
             font-weight: 800;
             margin: 0.5rem 0 1.5rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .old-price {
@@ -404,41 +398,6 @@
             color: var(--text-secondary);
         }
 
-        /* Social Proof */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .testimonial-card {
-            padding: 32px;
-        }
-
-        .stars {
-            color: #fbbf24;
-            margin-bottom: 1rem;
-        }
-
-        .avatar-info {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            margin-top: 2rem;
-        }
-
-        .avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-        }
-
         /* Steps */
         .steps-grid {
             display: grid;
@@ -451,8 +410,8 @@
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             background: var(--glass-bg);
             border: 1px solid var(--primary);
             color: var(--primary-light);
@@ -473,15 +432,21 @@
         }
 
         .faq-item {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             background: var(--glass-bg);
             overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .faq-question {
-            padding: 1.5rem;
+            padding: 1.25rem 1.5rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -491,29 +456,33 @@
         }
 
         .faq-answer {
-            padding: 0 1.5rem 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-secondary);
-            display: none;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active i {
+            transform: rotate(180deg);
         }
 
         /* Final CTA */
-        #final-cta {
-            text-align: center;
-            padding: 120px 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1), transparent 70%);
-        }
-
         .cta-box {
-            padding: 80px 40px;
+            padding: clamp(40px, 8vw, 80px) clamp(24px, 5vw, 40px);
             border-radius: var(--radius-xl);
-            position: relative;
-            overflow: hidden;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 70%);
         }
 
         /* Footer */
         footer {
             background-color: var(--bg-secondary);
-            color: var(--text-muted);
             padding: 80px 0 40px;
             border-top: 1px solid var(--border);
         }
@@ -521,55 +490,59 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 64px;
+            gap: 48px;
             margin-bottom: 48px;
         }
 
         .footer-logo {
             color: white;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .footer-links h4 {
             color: white;
             margin-bottom: 1.5rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
         }
 
         .footer-links ul {
             list-style: none;
         }
 
-        .footer-links ul li {
-            margin-bottom: 1rem;
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
-            color: inherit;
+            color: var(--text-muted);
             text-decoration: none;
             transition: var(--transition);
         }
 
         .footer-links a:hover {
             color: var(--primary-light);
+            padding-left: 4px;
         }
 
         .disclaimer {
             border-top: 1px solid var(--border);
             padding-top: 40px;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             text-align: center;
+            color: var(--text-muted);
         }
 
         /* Sticky WA */
         .sticky-wa {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 24px;
+            right: 24px;
             background-color: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -583,11 +556,68 @@
             transform: scale(1.1) rotate(10deg);
         }
 
+        /* Responsive Adjustments */
+        @media (max-width: 1100px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .pricing-card.popular {
+                transform: none;
+            }
+        }
+
         @media (max-width: 768px) {
-            .solution-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .pricing-card.popular { transform: none; }
-            #hero h1 { font-size: 2.75rem; }
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            /* Aturan Global: Hilangkan semua efek blur dan animasi di mobile */
+            *, *::before, *::after {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+            .glass, nav, .btn-outline, .cta-box, .faq-item {
+                background: rgba(11, 15, 25, 0.98) !important;
+            }
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn {
+                width: 100%;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -599,7 +629,7 @@
     <div class="stars3"></div>
 
     <!-- Sticky WhatsApp Button -->
-    <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20butuh%20informasi%20mengenai%20mentoring%20skripsi%20atau%20project%20akhir%20saya." class="sticky-wa" target="_blank">
+    <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20butuh%20informasi%20mengenai%20mentoring%20skripsi%20atau%20project%20akhir%20saya." class="sticky-wa" target="_blank" aria-label="WhatsApp">
         <i data-lucide="message-circle"></i>
     </a>
 
@@ -621,12 +651,14 @@
     <!-- 1. Hero Section -->
     <section id="hero">
         <div class="hero-glow"></div>
-        <div class="container">
+        <div class="container fade-in">
             <span class="badge">💎 Edisi Mahasiswa Semester Akhir</span>
             <h1>Struggling dengan <span>Skripsi</span> atau Project?</h1>
             <p>Bangun Aplikasi + Lulus Lebih Cepat dengan Pendampingan Mentor Expert. Bukan joki, tapi partner belajar sampai sidang.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#pricing" class="btn btn-gradient">Konsultasi Sekarang</a>
+                <a href="#pricing" class="btn btn-gradient">
+                    <i data-lucide="rocket" size="18"></i> Konsultasi Sekarang
+                </a>
                 <a href="#steps" class="btn btn-outline">Lihat Cara Kerja</a>
             </div>
         </div>
@@ -635,28 +667,28 @@
     <!-- 2. Problem Section -->
     <section id="problem" class="section-padding">
         <div class="container">
-            <div class="section-header">
-                <p style="color: var(--primary-light); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Pain Points</p>
+            <div class="section-header fade-in">
+                <p style="color: var(--primary-light); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; font-size: 0.8rem;">Pain Points</p>
                 <h2>Capek revisi tapi nggak selesai-selesai?</h2>
                 <p>Kami paham rasanya terjebak di tengah jalan tanpa arahan yang jelas.</p>
             </div>
             <div class="problem-cards">
-                <div class="problem-card glass">
+                <div class="problem-card glass fade-in">
                     <i data-lucide="map-pin" class="problem-icon" size="32"></i>
                     <h3>Bingung Mulai</h3>
                     <p>Punya judul tapi nggak tahu harus mulai coding atau bab 1 dari mana.</p>
                 </div>
-                <div class="problem-card glass">
+                <div class="problem-card glass fade-in">
                     <i data-lucide="x-circle" class="problem-icon" size="32"></i>
                     <h3>Ditolak Dosen</h3>
                     <p>Revisi berulang kali dengan alasan logika atau metodologi yang salah.</p>
                 </div>
-                <div class="problem-card glass">
+                <div class="problem-card glass fade-in">
                     <i data-lucide="code-2" class="problem-icon" size="32"></i>
                     <h3>Coding Stuck</h3>
                     <p>Error di tengah jalan dan nggak ada yang bisa ditanya untuk troubleshooting.</p>
                 </div>
-                <div class="problem-card glass">
+                <div class="problem-card glass fade-in">
                     <i data-lucide="clock" class="problem-icon" size="32"></i>
                     <h3>Deadline Mepet</h3>
                     <p>Waktu tinggal sedikit tapi progres masih di tempat. Takut terancam DO.</p>
@@ -668,13 +700,13 @@
     <!-- 3. Solution Section -->
     <section id="solution" class="section-padding">
         <div class="container solution-grid">
-            <div>
+            <div class="solution-image-container fade-in">
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Mentoring" class="solution-image">
             </div>
-            <div>
+            <div class="fade-in">
                 <span class="badge">Solusi Kami</span>
-                <h2 style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.2; margin-bottom: 1.5rem;">Kami Bukan Joki. Kami Adalah <span>Technical Partner</span> Anda.</h2>
-                <p style="color: var(--text-secondary); font-size: 1.1rem;">Kami tidak sekadar memberikan file, tapi membekali Anda dengan pemahaman agar Anda siap menghadapi dosen penguji dengan percaya diri.</p>
+                <h2 style="margin-bottom: 1.5rem;">Kami Bukan Joki. Kami Adalah <span>Technical Partner</span> Anda.</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Kami tidak sekadar memberikan file, tapi membekali Anda dengan pemahaman agar Anda siap menghadapi dosen penguji dengan percaya diri.</p>
                 
                 <ul class="solution-list">
                     <li class="solution-item">
@@ -706,108 +738,109 @@
     <!-- 4. Product Packages -->
     <section id="pricing" class="section-padding">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Pilih Paket Mentoring-mu</h2>
                 <p>Investasi untuk masa depan dan kelulusanmu. Transparan tanpa biaya tersembunyi.</p>
             </div>
             <div class="pricing-grid">
                 <!-- Konsultasi -->
-                <div class="pricing-card glass">
-                    <h3 style="color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px;">KONSULTASI</h3>
+                <div class="pricing-card glass fade-in">
+                    <h3 style="color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">KONSULTASI</h3>
                     <p style="font-weight: 700; margin-top: 0.5rem;">Tanya Jawab Singkat</p>
                     <div class="price">
                         <span class="old-price">Rp 150k</span>
                         100k <span>/ sesi</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-lucide="check" size="18"></i> Tanya Jawab Masalah Skripsi</li>
-                        <li><i data-lucide="check" size="18"></i> Solusi Error Cepat</li>
-                        <li><i data-lucide="check" size="18"></i> Review Singkat Progress</li>
-                        <li><i data-lucide="check" size="18"></i> Durasi 45 Menit</li>
+                        <li><i data-lucide="check" size="16"></i> Tanya Jawab Masalah Skripsi</li>
+                        <li><i data-lucide="check" size="16"></i> Solusi Error Cepat</li>
+                        <li><i data-lucide="check" size="16"></i> Review Singkat Progress</li>
+                        <li><i data-lucide="check" size="16"></i> Durasi 45 Menit</li>
                     </ul>
                     <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20memesan%20Paket%20KONSULTASI%20untuk%20skripsi%20saya.%20Kapan%20jadwal%20terdekat%3F" class="btn btn-outline">Pilih Paket</a>
                 </div>
                 <!-- Basic -->
-                <div class="pricing-card glass">
-                    <h3 style="color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px;">BASIC</h3>
+                <div class="pricing-card glass fade-in">
+                    <h3 style="color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">BASIC</h3>
                     <p style="font-weight: 700; margin-top: 0.5rem;">Mentoring Makalah</p>
                     <div class="price">
                         <span class="old-price">Rp 600k</span>
                         400k <span>/ 3 sesi</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-lucide="check" size="18"></i> 3x Pertemuan Intensif</li>
-                        <li><i data-lucide="check" size="18"></i> Bimbingan Penulisan Makalah</li>
-                        <li><i data-lucide="check" size="18"></i> Review Metodologi</li>
-                        <li><i data-lucide="check" size="18"></i> Support via WhatsApp</li>
+                        <li><i data-lucide="check" size="16"></i> 3x Pertemuan Intensif</li>
+                        <li><i data-lucide="check" size="16"></i> Bimbingan Penulisan Makalah</li>
+                        <li><i data-lucide="check" size="16"></i> Review Metodologi</li>
+                        <li><i data-lucide="check" size="16"></i> Support via WhatsApp</li>
                     </ul>
                     <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20memesan%20Paket%20BASIC%20(Mentoring%20Makalah).%20Mohon%20arahan%20selanjutnya." class="btn btn-outline">Pilih Paket</a>
                 </div>
                 <!-- PRO -->
-                <div class="pricing-card glass popular">
+                <div class="pricing-card glass popular fade-in">
                     <div class="popular-badge">PALING DIPILIH</div>
-                    <h3 style="color: var(--primary-light); font-size: 0.9rem; letter-spacing: 2px;">PRO</h3>
+                    <h3 style="color: var(--primary-light); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">PRO</h3>
                     <p style="font-weight: 700; margin-top: 0.5rem;">Pembuatan Project</p>
                     <div class="price">
                         <span class="old-price">Rp 2.5jt</span>
                         1.8jt <span>/ project</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-lucide="check" size="18"></i> Full Pembuatan Aplikasi</li>
-                        <li><i data-lucide="check" size="18"></i> Bonus Konsultasi Judul</li>
-                        <li><i data-lucide="check" size="18"></i> Revisi 1x (Mayor)</li>
-                        <li><i data-lucide="check" size="18"></i> Dokumentasi & Demo Alur</li>
-                        <li><i data-lucide="check" size="18"></i> Free Konsultasi Awal</li>
+                        <li><i data-lucide="check" size="16"></i> Full Pembuatan Aplikasi</li>
+                        <li><i data-lucide="check" size="16"></i> Bonus Konsultasi Judul</li>
+                        <li><i data-lucide="check" size="16"></i> Revisi 1x (Mayor)</li>
+                        <li><i data-lucide="check" size="16"></i> Dokumentasi & Demo Alur</li>
+                        <li><i data-lucide="check" size="16"></i> Free Konsultasi Awal</li>
                     </ul>
                     <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20memesan%20Paket%20PRO%20(Pembuatan%20Project).%20Mohon%20info%20detailnya." class="btn btn-gradient">Pilih Paket</a>
                 </div>
                 <!-- PREMIUM -->
-                <div class="pricing-card glass">
-                    <h3 style="color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px;">PREMIUM</h3>
+                <div class="pricing-card glass fade-in">
+                    <h3 style="color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">PREMIUM</h3>
                     <p style="font-weight: 700; margin-top: 0.5rem;">Full Mentoring</p>
                     <div class="price">
                         <span class="old-price">Rp 6.0jt</span>
                         4.5jt <span>/ full</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-lucide="check" size="18"></i> Bimbingan Bab 1 - Sidang</li>
-                        <li><i data-lucide="check" size="18"></i> Pembuatan Aplikasi Lengkap</li>
-                        <li><i data-lucide="check" size="18"></i> Revisi UNLIMITED (Sampai ACC)</li>
-                        <li><i data-lucide="check" size="18"></i> Simulasi Sidang Berkala</li>
-                        <li><i data-lucide="check" size="18"></i> Support Prioritas 24/7</li>
+                        <li><i data-lucide="check" size="16"></i> Bimbingan Bab 1 - Sidang</li>
+                        <li><i data-lucide="check" size="16"></i> Pembuatan Aplikasi Lengkap</li>
+                        <li><i data-lucide="check" size="16"></i> Revisi UNLIMITED</li>
+                        <li><i data-lucide="check" size="16"></i> Simulasi Sidang Berkala</li>
+                        <li><i data-lucide="check" size="16"></i> Support Prioritas 24/7</li>
                     </ul>
                     <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20memesan%20Paket%20PREMIUM%20(Full%20Mentoring).%20Saya%20ingin%20bimbingan%20dari%20awal%20sampai%20sidang." class="btn btn-outline">Pilih Paket</a>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- 6. How It Works -->
     <section id="steps" class="section-padding">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Alur Mentoring Sederhana</h2>
                 <p>Hanya 4 langkah menuju toga kelulusan.</p>
             </div>
             <div class="steps-grid">
-                <div class="step-card">
+                <div class="step-card fade-in">
                     <div class="step-number">1</div>
-                    <h4 style="margin-bottom: 0.75rem;">Konsultasi Awal</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Diskusi via WA/Zoom untuk bedah kebutuhan skripsi kamu.</p>
+                    <h4>Konsultasi Awal</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Diskusi via WA/Zoom untuk bedah kebutuhan skripsi kamu.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card fade-in">
                     <div class="step-number">2</div>
-                    <h4 style="margin-bottom: 0.75rem;">Deal & Timeline</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Tentukan paket dan buat timeline pengerjaan yang disepakati.</p>
+                    <h4>Deal & Timeline</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Tentukan paket dan buat timeline pengerjaan yang disepakati.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card fade-in">
                     <div class="step-number">3</div>
-                    <h4 style="margin-bottom: 0.75rem;">Mentoring / Build</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Proses pengerjaan aplikasi atau bimbingan dimulai secara intensif.</p>
+                    <h4>Mentoring / Build</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Proses pengerjaan aplikasi atau bimbingan dimulai secara intensif.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card fade-in">
                     <div class="step-number">4</div>
-                    <h4 style="margin-bottom: 0.75rem;">Lulus & Sidang</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Project selesai, kamu paham materi, dan siap menghadapi sidang.</p>
+                    <h4>Lulus & Sidang</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Project selesai, kamu paham materi, dan siap menghadapi sidang.</p>
                 </div>
             </div>
         </div>
@@ -816,96 +849,76 @@
     <!-- FAQ Section -->
     <section class="section-padding">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Pertanyaan Umum</h2>
             </div>
             <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">Apakah ini joki? <i data-lucide="chevron-down"></i></div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Apakah ini joki? <i data-lucide="chevron-down" size="18"></i></div>
                     <div class="faq-answer">Bukan. Kami adalah mentor. Kami memberikan pendampingan teknis dan edukasi agar Anda memahami aplikasi yang dibuat dan siap mempertanggungjawabkannya di depan dosen.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">Apakah aman dari plagiasi? <i data-lucide="chevron-down"></i></div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Apakah aman dari plagiasi? <i data-lucide="chevron-down" size="18"></i></div>
                     <div class="faq-answer">Sangat aman. Setiap project dibuat custom dari nol sesuai dengan kebutuhan spesifik dan logika unik skripsi Anda.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">Bisa bantu teknologi apa saja? <i data-lucide="chevron-down"></i></div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Bisa bantu teknologi apa saja? <i data-lucide="chevron-down" size="18"></i></div>
                     <div class="faq-answer">Kami ahli di Web (Laravel, React, Node.js), Mobile (Flutter, Android Native), dan AI/Data Science (Python).</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">Berapa lama waktu pengerjaan project? <i data-lucide="chevron-down"></i></div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Berapa lama waktu pengerjaan project? <i data-lucide="chevron-down" size="18"></i></div>
                     <div class="faq-answer">Waktu pengerjaan bervariasi antara 2 hingga 6 minggu, tergantung pada tingkat kompleksitas fitur dan paket yang Anda pilih.</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">Apakah bisa bimbingan dari tahap penentuan judul? <i data-lucide="chevron-down"></i></div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Apakah bisa bimbingan dari tahap penentuan judul? <i data-lucide="chevron-down" size="18"></i></div>
                     <div class="faq-answer">Sangat bisa. Kami akan membantu Anda brainstorming ide yang relevan dengan tren industri saat ini agar mudah disetujui dosen.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Bagaimana jika dosen meminta revisi besar? <i data-lucide="chevron-down"></i></div>
-                    <div class="faq-answer">Jangan khawatir. Paket PRO dan PREMIUM sudah termasuk layanan revisi fitur sesuai kesepakatan awal hingga project Anda di-ACC.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Apakah bimbingan dilakukan secara online? <i data-lucide="chevron-down"></i></div>
-                    <div class="faq-answer">Ya, bimbingan dilakukan secara intensif melalui Zoom, Google Meet, dan koordinasi cepat via WhatsApp untuk fleksibilitas waktu Anda.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Apakah saya akan diajarkan cara menjawab pertanyaan dosen? <i data-lucide="chevron-down"></i></div>
-                    <div class="faq-answer">Ya, kami menyediakan sesi simulasi sidang untuk membekali Anda cara menjelaskan logika program dan menjawab pertanyaan teknis dosen.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Bagaimana sistem pembayarannya? <i data-lucide="chevron-down"></i></div>
-                    <div class="faq-answer">Kami menggunakan sistem pembayaran bertahap (Down Payment) untuk memulai project guna menjamin keamanan dan kenyamanan kedua belah pihak.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Apa saja yang saya dapatkan di akhir mentoring? <i data-lucide="chevron-down"></i></div>
-                    <div class="faq-answer">Anda akan mendapatkan source code lengkap, database, dokumentasi alur sistem, serta rekaman sesi penjelasan program jika diperlukan.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 7. Final CTA -->
-    <section id="final-cta">
+    <section id="final-cta" class="section-padding">
         <div class="container">
-            <div class="cta-box glass">
-                <span style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--orange);">Terbatas!</span>
-                <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin: 1.5rem 0;">Sisa 3 Slot Mentoring Bulan Ini</h2>
-                <p style="margin-bottom: 3rem; font-size: 1.2rem; color: var(--text-secondary);">Dapatkan diskon 10% untuk mahasiswa yang booking minggu ini. Jangan tunggu sampai deadline datang!</p>
-                <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20booking%20slot%20mentoring%20skripsi%20bulan%20ini%20sebelum%20kehabisan.%20Mohon%20info%20ketersediaannya." class="btn btn-gradient" style="padding: 1.25rem 3rem; font-size: 1.1rem;">
-                    <i data-lucide="message-circle" style="margin-right: 10px;"></i> Chat WhatsApp Sekarang
+            <div class="cta-box glass fade-in">
+                <span style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); font-size: 0.8rem;">Slot Terbatas!</span>
+                <h2 style="font-size: clamp(1.75rem, 5vw, 3rem); margin: 1.5rem 0;">Sisa 3 Slot Mentoring Bulan Ini</h2>
+                <p style="margin-bottom: 2.5rem; color: var(--text-secondary);">Dapatkan diskon 10% untuk mahasiswa yang booking minggu ini. Jangan tunggu sampai deadline datang!</p>
+                <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20booking%20slot%20mentoring%20skripsi%20bulan%20ini%20sebelum%20kehabisan.%20Mohon%20info%20ketersediaannya." class="btn btn-gradient" style="padding: 1rem 2.5rem;">
+                    <i data-lucide="message-circle"></i> Chat WhatsApp Sekarang
                 </a>
-                <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">*Gratis konsultasi awal 15 menit</p>
+                <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">*Gratis konsultasi awal 15 menit</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" style="background-color: var(--bg-secondary); color: var(--text-muted); padding: 80px 0 40px; border-top: 1px solid var(--border);">
+    <footer>
         <div class="container">
-            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 48px;">
+            <div class="footer-grid">
                 <div>
-                    <h3 class="footer-logo" style="color: white; margin-bottom: 1.5rem;">Sundcode Nusantara</h3>
-                    <p style="line-height: 1.8;">Partner terpercaya mahasiswa IT dalam menyelesaikan skripsi dan project akhir dengan cara yang edukatif dan profesional.</p>
+                    <div class="footer-logo">Sundcode Nusantara</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Partner terpercaya mahasiswa IT dalam menyelesaikan skripsi dan project akhir dengan cara yang edukatif dan profesional.</p>
                 </div>
                 <div class="footer-links">
-                    <h4 style="color: white; margin-bottom: 1.5rem;">Navigasi</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 1rem;"><a href="#hero" style="color: inherit; text-decoration: none;">Beranda</a></li>
-                        <li style="margin-bottom: 1rem;"><a href="#pricing" style="color: inherit; text-decoration: none;">Paket Harga</a></li>
-                        <li style="margin-bottom: 1rem;"><a href="#steps" style="color: inherit; text-decoration: none;">Cara Kerja</a></li>
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#hero">Beranda</a></li>
+                        <li><a href="#pricing">Paket Harga</a></li>
+                        <li><a href="#steps">Cara Kerja</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4 style="color: white; margin-bottom: 1.5rem;">Kontak</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 1rem;"><a href="#" style="color: inherit; text-decoration: none;"><i data-lucide="instagram" size="16" style="vertical-align: middle; margin-right: 8px;"></i> @sundcodenusantara</a></li>
-                        <li style="margin-bottom: 1rem;"><a href="mailto:hello@sundcode.com" style="color: inherit; text-decoration: none;"><i data-lucide="mail" size="16" style="vertical-align: middle; margin-right: 8px;"></i> hello@sundcode.com</a></li>
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="#"><i data-lucide="instagram" size="14"></i> @sundcodenusantara</a></li>
+                        <li><a href="mailto:sundcode@gmail.com?subject=Tanya%20Mentoring%20Skripsi&body=Halo%20Tim%20Sundcode,%20saya%20ingin%20tanya%20lebih%20lanjut%20mengenai%20paket%20mentoring%20skripsi."><i data-lucide="mail" size="14"></i> sundcode@gmail.com</a></li>
                     </ul>
                 </div>                
             </div>
-            <div class="disclaimer" style="border-top: 1px solid var(--border); padding-top: 40px; font-size: 0.875rem; text-align: center;">
+            <div class="disclaimer">
                 <p>&copy; 2026 Sundcode Nusantara. All rights reserved.</p>
-                <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p style="margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.4;">
                     <strong>Disclaimer:</strong> Layanan ini bersifat pendampingan & edukasi. Kami tidak bertanggung jawab atas penyalahgunaan hasil pekerjaan yang melanggar aturan akademik institusi Anda.
                 </p>
             </div>
@@ -917,36 +930,59 @@
         lucide.createIcons();
 
         // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const answer = item.nextElementSibling;
-                const icon = item.querySelector('i');
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
                 
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    answer.style.display = 'block';
-                    icon.style.transform = 'rotate(180deg)';
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
         });
 
-        // Smooth Scroll
+        // Smooth Scroll with Offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
+                        const offset = 80;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementRect = target.getBoundingClientRect().top;
+                        const elementPosition = elementRect - bodyRect;
+                        const offsetPosition = elementPosition - offset;
+
                         window.scrollTo({
-                            top: target.offsetTop - 80,
+                            top: offsetPosition,
                             behavior: 'smooth'
                         });
                     }
                 }
             });
         });
+
+        // Intersection Observer for Fade-in Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

@@ -135,65 +135,47 @@
                     </div>
                 </div>
 
-                <!-- Center Card - Analytics -->
+                <!-- Center Card - Python -->
                 <div class="float-card card-center">
                     <div class="card-glow"></div>
                     <div class="card-header">
-                        <span class="card-title">Analytics</span>
-                        <span class="card-badge">Live</span>
+                        <div class="card-dots">
+                            <span class="dot-red"></span>
+                            <span class="dot-yellow"></span>
+                            <span class="dot-green"></span>
+                        </div>
+                        <span class="card-title">main.py</span>
+                        <span class="card-badge" style="margin-left: 10px; background: rgba(55, 118, 171, 0.2); color: #3776ab; border: 1px solid rgba(55, 118, 171, 0.3);">Python</span>
                     </div>
-                    <div class="card-body analytics-body">
-                        <div class="analytics-header">
-                            <div class="metric">
-                                <span class="metric-value">24.5K</span>
-                                <span class="metric-label">Users</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">99.9%</span>
-                                <span class="metric-label">Uptime</span>
-                            </div>
-                        </div>
-                        <div class="chart-mini">
-                            <div class="chart-bar" style="height: 40%"></div>
-                            <div class="chart-bar" style="height: 65%"></div>
-                            <div class="chart-bar" style="height: 45%"></div>
-                            <div class="chart-bar" style="height: 80%"></div>
-                            <div class="chart-bar" style="height: 55%"></div>
-                            <div class="chart-bar" style="height: 90%"></div>
-                            <div class="chart-bar" style="height: 70%"></div>
-                        </div>
+                    <div class="card-body code-body">
+                        <div class="code-line"><span class="code-keyword">from</span> <span class="code-var">fastapi</span> <span class="code-keyword">import</span> <span class="code-var">FastAPI</span></div>
+                        <div class="code-line"><span class="code-var">app</span> = <span class="code-func">FastAPI</span>()</div>
+                        <div class="code-line"><span class="code-var">@app</span>.<span class="code-func">get</span>(<span class="code-string">"/"</span>)</div>
+                        <div class="code-line"><span class="code-keyword">def</span> <span class="code-func">root</span>():</div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> {<span class="code-string">"status"</span>: <span class="code-string">"running"</span>}</div>
+                        <div class="code-line"><span class="code-comment"># API Ready ✓</span></div>
                     </div>
                 </div>
 
-                <!-- Right Card - Dashboard -->
+                <!-- Right Card - Konsultasi -->
                 <div class="float-card card-right">
                     <div class="card-glow"></div>
                     <div class="card-header">
-                        <span class="card-title">Dashboard</span>
+                        <span class="card-title">Konsultasi</span>
+                        <span class="card-badge">Active</span>
                     </div>
                     <div class="card-body dashboard-body">
                         <div class="dash-row">
                             <div class="dash-card">
-                                <div class="dash-icon">📈</div>
-                                <span class="dash-value">+127%</span>
-                                <span class="dash-label">Revenue</span>
+                                <div class="dash-icon">💬</div>
+                                <span class="dash-value">98%</span>
+                                <span class="dash-label">Kepuasan</span>
                             </div>
                             <div class="dash-card">
-                                <div class="dash-icon">👥</div>
-                                <span class="dash-value">1.2K</span>
-                                <span class="dash-label">Clients</span>
+                                <div class="dash-icon">📅</div>
+                                <span class="dash-value">24/7</span>
+                                <span class="dash-label">Support</span>
                             </div>
-                        </div>
-                        <div class="dash-graph">
-                            <svg viewBox="0 0 200 60" fill="none">
-                                <path d="M0 50 Q25 40 50 45 T100 30 T150 20 T200 10" stroke="url(#grad)" stroke-width="2" fill="none"/>
-                                <defs>
-                                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" style="stop-color:#6366F1"/>
-                                        <stop offset="100%" style="stop-color:#A855F7"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
                         </div>
                     </div>
                 </div>
@@ -402,12 +384,10 @@
                         class="btn btn-gradient btn-lg" target="_blank">
                         <span>Mulai Sekarang</span>
                     </a>
-                    <a href="mailto:tooto.ahmad@gmail.com?subject=Permintaan%20Jadwal%20Diskusi&body=Halo%20Tim%20Sundcode,%20saya%20tertarik%20dengan%20produk%20Sundcode.%20Apakah%20saya%20bisa%20meminta%20jadwal%20untuk%20diskusi%20mengenai%20kebutuhan%20bisnis%20kami?" 
+                    <a href="mailto:sundcode@gmail.com?subject=Tanya%20Seputar%20Layanan%20Sundcode&body=Halo%20Tim%20Sundcode,%20saya%20tertarik%20untuk%20berkonsultasi%20mengenai%20kebutuhan%20digital%20bisnis%20saya.%20Mohon%20info%20selengkapnya." 
                         class="btn btn-outline btn-lg" target="_blank">
                         <span>Buat Jadwal</span>
                     </a>
-
-                </div>
                 <p class="cta-note">✓ Konsultasi &nbsp; ✓ Tanpa komitmen &nbsp; ✓ Response dalam 24 jam</p>
             </div>
         </div>
@@ -454,7 +434,7 @@
                         <li><a href="#" aria-label="Instagram">Instagram</a></li>
                         <li><a href="#" aria-label="Twitter">Twitter</a></li>
                     </ul>
-                    <p class="contact-info">hello@sundcode.com</p>
+                    <p class="contact-info">sundcode@gmail.com</p>
                 </div>
             </div>
         </div>

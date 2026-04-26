@@ -1,0 +1,1057 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FleetManager - Aplikasi manajemen armada dan pengiriman terbaik by sundcode">
+    <meta name="keywords" content="fleet management, ekspedisi, armada, pengiriman, cargo, sistem manajemen armada">
+    <title>FleetManager - Solusi Cerdas Manajemen Armada & Pengiriman</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animated CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary: #00bcd4;
+            --primary-dark: #0097a7;
+            --secondary: #00bfa5;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6f00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .lead {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+        
+        /* Buttons */
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #20bd5a;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-email {
+            background: transparent;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-email:hover {
+            background: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
+            color: white;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,188,212,0.2);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0,188,212,0.1), rgba(0,191,165,0.1));
+            font-size: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .feature-card h4 {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Screenshot Section */
+        .screenshot-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .screenshot-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+        }
+        
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+        
+        .screenshot-header {
+            background: #f1f1f1;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .screenshot-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .screenshot-dot.red { background: #ff5f56; }
+        .screenshot-dot.yellow { background: #ffbd2e; }
+        .screenshot-dot.green { background: #27ca40; }
+        
+        .screenshot-content {
+            padding: 0;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        
+        .screenshot-content::before {
+            content: 'Home Page Preview';
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            opacity: 0.5;
+        }
+        
+        .screenshot-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .pricing-card h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-card ul li i {
+            color: var(--secondary);
+        }
+        
+        /* Testimonial */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial-card .quote {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            padding: 60px 0 30px;
+            color: white;
+        }
+        
+        .footer h5 {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 12px;
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .fadeInUp {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+                margin: 20px 0;
+            }
+        }
+        
+        /* Floating WhatsApp */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-wa a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        
+        .floating-wa a:hover {
+            transform: scale(1.1);
+        }
+        
+        .wa-btn {
+            background: #25D366;
+            color: white;
+        }
+        
+        .email-btn {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Stats Counter */
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".header">
+    
+    <!-- Floating Buttons -->
+    <div class="floating-wa">
+        <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20ingin%20informasi%20lebih%20lanjut%20tentang%20FleetManager" target="_blank" class="wa-btn" title="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:sundcode@gmail.com?subject=Informasi%20FleetManager&text=Halo%20sundcode%2C%20saya%20ingin%20informasi%20lebih%20lanjut%20tentang%20FleetManager" class="email-btn" title="Kirim Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+    
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <h4 style="color: white; margin: 0; font-weight: 700;">
+                        <span style="color: var(--primary);">Fleet</span>Manager
+                    </h4>
+                </div>
+                <div class="col-lg-9 text-right">
+                    <a href="#features" class="text-white mr-4" style="text-decoration: none;">Fitur</a>
+                    <a href="#screenshots" class="text-white mr-4" style="text-decoration: none;">Preview</a>
+                    <a href="#pricing" class="text-white mr-4" style="text-decoration: none;">Harga</a>
+                    <a href="#contact" class="btn btn-primary-custom ml-4">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content">
+                    <h1 class="wow fadeInUp" style="color: white;">
+                        Kelola Armada <br><span>Lebih Cerdas</span> dengan FleetManager
+                    </h1>
+                    <p class="lead wow fadeInUp delay-1">
+                        Tingkatkan profesionalisme bisnis ekspedisi Anda dengan sistem manajemen armada terintegrasi. Mulai dari pemesanan, tracking driver, hingga invoice otomatis - semua dalam satu platform!
+                    </p>
+                    <div class="wow fadeInUp delay-2">
+                        <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20tertarik%20dengan%20FleetManager%20dan%20ingin%20tahu%20lebih%20lanjut" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            Konsultasi Gratis
+                        </a>
+                        <a href="#features" class="btn btn-email ml-3">
+                            <i class="fas fa-arrow-down"></i>
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                    <div class="row mt-5 wow fadeInUp delay-3">
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Pengguna Aktif</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <div class="stat-number">50rb+</div>
+                                <div class="stat-label">Transaksi/Bulan</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <div class="stat-number">99%</div>
+                                <div class="stat-label">Kepuasan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center wow fadeInUp delay-2">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%231a1a2e' width='400' height='300'/%3E%3Ctext fill='white' x='200' y='130' text-anchor='middle' font-size='24'%3E%F0%9F%9A%85 Dashboard FleetManager%3C/text%3E%3Ctext fill='%2300bcd4' x='200' y='170' text-anchor='middle' font-size='14'%3EAdmin Panel • Analytics • Reporting%3C/text%3E%3Ccircle cx='200' cy='230' r='40' fill='none' stroke='%2300bcd4' stroke-width='3'/%3E%3Ctext fill='%2300bcd4' x='200' y='240' text-anchor='middle' font-size='30'%3E%3Ci class='fas fa-truck'%3E%3C/text%3E%3C/svg%3E" 
+                         alt="FleetManager Dashboard" 
+                         style="max-width: 100%; border-radius: 15px; box-shadow: 0 30px 60px rgba(0,0,0,0.4);">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fitur <span>Lengkap</span></h2>
+                <p>FleetManager hadir dengan fitur lengkap untuk memenuhi segala kebutuhan bisnis armada Anda</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h4>Kelola Armada</h4>
+                        <p>Kelola berbagai jenis armada dengan detail spesifikasi kapasitas, dimensi, dan harga per km. Kategori fleksibel untuk semua kebutuhan.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>Sistem Pemesanan</h4>
+                        <p>Pelanggan dapat melihat armada, memilih, dan melakukan pemesanan dengan mudah melalui website yang modern.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>Kalkulasi Otomatis</h4>
+                        <p>Sistem menghitung ongkos kirim otomatis berdasarkan jarak origem-tujuan dan harga armada secara real-time.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Live Tracking</h4>
+                        <p>Pantau posisi driver secara real-time dengan peta interaktif. Know exactly where your fleet is at all times.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Manajemen Driver</h4>
+                        <p>Kelola driver dengan sistem penugasan work order. Status pekerjaan ter-track dari accept hingga finish.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h4>Invoice Otomatis</h4>
+                        <p>Generate invoice secara otomatis untuk setiap transaksi. Professional dan mudah disimpan.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h4>Sistem Diskon</h4>
+                        <p>Kelola kode diskon untuk promo khusus. Stock terkontrol otomatis untuk setiap kode.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h4>Artikel & Blog</h4>
+                        <p>Publikasikan artikel dan berita perusahaan dengan easy-to-use editor (SummerNote).</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Laporan & Analisis</h4>
+                        <p>Dapatkan insights dari data transaksi. Stats komprehensif untuk pengambilan keputusan bisnis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Screenshots Section -->
+    <section class="section screenshot-section" id="screenshots">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tampilan <span>Applikasi</span></h2>
+                <p>Antarmuka modern, responsive, dan intuitif untuk pengalaman pengguna terbaik</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-home mr-2"></i>Home Page
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-truck mr-2"></i>Armada Page
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-user mr-2"></i>Dashboard Member
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-shopping-cart mr-2"></i>Cart & Checkout
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-id-card mr-2"></i>Admin Panel
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="screenshot-card">
+                        <div class="screenshot-header">
+                            <span class="screenshot-dot red"></span>
+                            <span class="screenshot-dot yellow"></span>
+                            <span class="screenshot-dot green"></span>
+                        </div>
+                        <div class="screenshot-content">
+                            <span class="screenshot-label">
+                                <i class="fas fa-map mr-2"></i>Live Tracking
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Advantages Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Kenapa <span style="color: var(--primary);">FleetManager</span>?</h2>
+                <p style="color: rgba(255,255,255,0.7);">Keunggulan yang membuat bisnis Anda lebih meningkat</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-rocket" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 8px;">Mudah Digunakan</h5>
+                                <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem;">Tampilan intuitif yang mudah dipelajari. Tidak perlu培训 intensive untuk tim Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 60px; height: 60px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-mobile-alt" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 8px;">Responsive Design</h5>
+                                <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem;">Tampilan optimal di desktop, tablet, dan mobile. Akses kapan saja, di mana saja.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 60px; height: 60px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 8px;">Aman & Terpercaya</h5>
+                                <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem;">Built dengan Django - framework dengan keamanan enterprise.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div style="width: 60px; height: 60px; background: #e91e63; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fas fa-headset" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin-bottom: 8px;">Dukungan Profesional</h5>
+                                <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem;">Tim support siap membantu Anda 24/7 melalui WhatsApp atau email.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Harga <span>Terjangkau</span></h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan bisnis Anda</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <h4>Starter</h4>
+                        <div class="price">Rp 500rb<span>/bulan</span></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 5 Armada</li>
+                            <li><i class="fas fa-check-circle"></i> 50 Transaksi/bulan</li>
+                            <li><i class="fas fa-check-circle"></i> 3 Driver</li>
+                            <li><i class="fas fa-check-circle"></i> Dashboard Lengkap</li>
+                            <li><i class="fas fa-check-circle"></i> Email Support</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20ingin%20paket%20Starter%20FleetManager" class="btn btn-primary-custom" style="width: 100%;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card featured">
+                        <div class="badge">POPULER</div>
+                        <h4>Business</h4>
+                        <div class="price">Rp 1jt<span>/bulan</span></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 20 Armada</li>
+                            <li><i class="fas fa-check-circle"></i> 200 Transaksi/bulan</li>
+                            <li><i class="fas fa-check-circle"></i> 10 Driver</li>
+                            <li><i class="fas fa-check-circle"></i> Live Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Invoice Otomatis</li>
+                            <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20ingin%20paket%20Business%20FleetManager" class="btn btn-primary-custom" style="width: 100%;">Pilih Paket</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <h4>Enterprise</h4>
+                        <div class="price">Kontak<span>/bulan</span></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Unlimited Armada</li>
+                            <li><i class="fas fa-check-circle"></i> Transaksi Unlimited</li>
+                            <li><i class="fas fa-check-circle"></i> Unlimited Driver</li>
+                            <li><i class="fas fa-check-circle"></i> Custom Fitur</li>
+                            <li><i class="fas fa-check-circle"></i> API Access</li>
+                            <li><i class="fas fa-check-circle"></i> Dedicated Support</li>
+                        </ul>
+                        <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20ingin%20tanya%20tentang%20paket%20Enterprise%20FleetManager" class="btn btn-primary-custom" style="width: 100%;">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Siang Elevasi Bisnis Armada Anda?</h2>
+            <p>Jangan lewatkan kesempatan untuk meningkatkan profesionalisme bisnis Anda dengan FleetManager</p>
+            <div>
+                <a href="https://wa.me/6281234567890?text=Halo%20sundcode%2C%20saya%20ingin%20konsultasi%20tentang%20FleetManager" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat WhatsApp
+                </a>
+                <a href="mailto:sundcode@gmail.com?subject=Informasi%20FleetManager" class="btn btn-email ml-3">
+                    <i class="fas fa-envelope"></i>
+                    Kirim Email
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 style="color: white;">FleetManager</h5>
+                    <p style="opacity: 0.7; margin-top: 15px;">Aplikasi manajemen armada dan pengiriman terbaik untuk bisnis Anda. Modern, efisien, dan profesional.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://wa.me/6281234567890" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:sundcode@gmail.com" style="color: white; font-size: 1.5rem; margin-right: 15px;"><i class="fas fa-envelope"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 style="color: white;">Link Cepat</h5>
+                    <ul style="margin-top: 20px;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Beranda</a></li>
+                        <li><a href="#features" style="color: white; text-decoration: none;">Fitur</a></li>
+                        <li><a href="#screenshots" style="color: white; text-decoration: none;">Preview</a></li>
+                        <li><a href="#pricing" style="color: white; text-decoration: none;">Harga</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 style="color: white;">Hubungi Kami</h5>
+                    <ul style="margin-top: 20px; opacity: 0.7;">
+                        <li><i class="fas fa-envelope mr-2"></i> sundcode@gmail.com</li>
+                        <li><i class="fab fa-whatsapp mr-2"></i> +62 812 3456 7890</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 FleetManager by sundcode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Header scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.header').addClass('scrolled');
+            } else {
+                $('.header').removeClass('scrolled');
+            }
+        });
+        
+        // Smooth scroll
+        $('a[href^="#"]').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($(this).attr('href')).offset().top - 80
+            }, 800);
+        });
+    </script>
+</body>
+
+</html>

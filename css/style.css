@@ -565,9 +565,31 @@ img {
 }
 
 @media (max-width: 768px) {
-    .navbar-content {
-        gap: 16px;
+    /* Aturan Global: Hilangkan semua efek blur di mobile */
+    *, *::before, *::after {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
+
+    /* Pastikan latar belakang tetap solid dan tidak transparan buram */
+    .glass, 
+    .float-card, 
+    .navbar,
+    .navbar.scrolled, 
+    .nav-menu,
+    .cta-content,
+    .faq-item {
+        background: rgba(11, 15, 25, 0.98) !important;
+    }
+
+    /* Hilangkan animasi fade-in agar tidak ada proses rendering yang menyebabkan buram */
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
 
     .logo {
         flex-shrink: 0;
