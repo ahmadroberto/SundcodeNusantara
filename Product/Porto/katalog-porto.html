@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog: Porto Next-Gen - Developer Portfolio Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020617;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.2);
+            --text-dim: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: white; line-height: 1.6; overflow-x: hidden; }
+        .hero { position: relative; padding: 120px 20px; text-align: center; background: radial-gradient(circle at top center, var(--accent-glow) 0%, transparent 70%); }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 4.5rem; margin-bottom: 20px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; color: var(--text-dim); max-width: 800px; margin: 0 auto 40px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .f-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s; }
+        .f-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.05); transform: translateY(-5px); }
+        .f-card h3 { font-family: 'Space Grotesk', sans-serif; color: var(--accent); margin-bottom: 15px; }
+        .f-card p { font-size: 0.95rem; color: var(--text-dim); }
+        .ss-showcase { margin-top: 100px; }
+        .ss-main { width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 30px 60px rgba(0,0,0,0.5); margin-bottom: 30px; }
+        .cta-box { background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%); padding: 80px 40px; border-radius: 30px; text-align: center; border: 1px solid var(--accent); margin-top: 80px; position: relative; overflow: hidden; }
+        .btn { display: inline-block; padding: 18px 40px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; font-family: 'Space Grotesk', sans-serif; margin: 10px; }
+        .btn-primary { background: var(--accent); color: white; box-shadow: 0 10px 20px var(--accent-glow); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.1); color: white; }
+        .btn:hover { transform: scale(1.05); opacity: 0.9; }
+        .tech-list { margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .tech-item { background: rgba(99, 102, 241, 0.1); color: var(--accent); padding: 5px 15px; border-radius: 100px; font-size: 0.8rem; border: 1px solid var(--accent-glow); }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Porto Next-Gen</h1>
+        <p>Tingkatkan Personal Branding Anda ke Level Berikutnya. Portfolio Interaktif dengan Animasi Premium untuk Developer & Profesional Kreatif.</p>
+        <a href="Porto/index.html" class="btn btn-primary">Lihat Live Portfolio</a>
+        <a href="#order" class="btn btn-outline">Dapatkan Sekarang</a>
+    </section>
+
+    <div class="container">
+        <div class="feature-grid">
+            <div class="f-card">
+                <h3>Glassmorphism UI</h3>
+                <p>Estetika modern dengan efek kaca transparan dan blur yang memberikan kesan mewah dan futuristik.</p>
+            </div>
+            <div class="f-card">
+                <h3>Advanced Animations</h3>
+                <p>Dilengkapi Particle Background, Typing Effect, hingga Magnetic Buttons yang sangat interaktif.</p>
+            </div>
+            <div class="f-card">
+                <h3>Project Filtering</h3>
+                <p>Navigasi karya Anda dengan fitur filter kategori yang mulus tanpa reload halaman.</p>
+            </div>
+            <div class="f-card">
+                <h3>Pure Performance</h3>
+                <p>Tanpa Framework! Hanya Vanilla JS. Sangat ringan, cepat, dan mudah di-hosting di mana saja.</p>
+            </div>
+        </div>
+
+        <div class="ss-showcase">
+            <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=1200&q=80" alt="Dashboard" class="ss-main">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Stats" style="width: 100%; border-radius: 15px;">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code" style="width: 100%; border-radius: 15px;">
+            </div>
+        </div>
+
+        <div class="cta-box" id="order">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem; margin-bottom: 20px;">Siap Tampil Berbeda?</h2>
+            <p>Jadilah yang paling menonjol di mata rekruter atau klien dengan portfolio kelas dunia.</p>
+            <div class="tech-list">
+                <span class="tech-item">Particle.js Style</span>
+                <span class="tech-item">Vanilla ES6+</span>
+                <span class="tech-item">CSS Variables</span>
+                <span class="tech-item">SEO Optimized</span>
+            </div>
+            <br><br>
+            <a href="https://wa.me/6281234567890?text=Halo%20Sundcode%2C%20saya%20tertarik%20dengan%20Template%20Porto%20Next-Gen.%20Bisa%20info%20harga%20dan%20cara%20belinya%3F" class="btn btn-primary" target="_blank">Order via WhatsApp</a>
+            <a href="mailto:sundcode@gmail.com?subject=Tanya%20Portfolio%20Template&body=Halo%20Sundcode%2C%0A%0ASaya%20sangat%20tertarik%20dengan%20tampilan%20Porto%20Next-Gen.%20Mohon%20informasi%20mengenai%20harga%20lisensinya.%0A%0ATerima%20kasih." class="btn btn-outline">Order via Email</a>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        &copy; 2026 Sundcode Nusantara - Crafting Digital Identity
+    </footer>
+</body>
+</html>
