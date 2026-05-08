@@ -12,11 +12,15 @@
     <style>
         /* Custom styles for product page */
         .products-hero {
-            padding: 160px 0 60px;
+            padding-top: 100px;
             text-align: center;
             position: relative;
         }
-
+        .products-section{
+            position: relative;
+            z-index: 1;
+            padding: 25px;
+        }
         .filter-container {
             display: flex;
             justify-content: center;
@@ -43,11 +47,12 @@
             box-shadow: var(--glow-primary);
         }
 
-        .product-grid {
+       .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 32px;
             margin-bottom: 80px;
+            align-items: stretch; /* pastikan semua kolom rata tinggi */
         }
 
         .product-card {
@@ -56,25 +61,14 @@
             height: 100%;
         }
 
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-light);
-            margin: 16px 0;
+        .portfolio-info {
+            flex: 1; /* isi konten ambil ruang fleksibel */
             display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .product-price span {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            text-decoration: line-through;
-            font-weight: 400;
+            flex-direction: column;
         }
 
         .product-actions {
-            margin-top: auto;
+            margin-top: auto; /* dorong tombol ke bawah */
             display: flex;
             gap: 12px;
         }
@@ -96,6 +90,7 @@
             z-index: 2;
         }
 
+
         [data-theme="light"] .filter-btn {
             background: white;
             border-color: rgba(15, 23, 42, 0.1);
@@ -105,6 +100,71 @@
             .product-grid {
                 grid-template-columns: 1fr;
             }
+        }
+        /* ========================================
+        Horizontal Category Filter
+        ======================================== */
+
+        .category-filter {
+            margin: 10px 0 50px;
+            position: relative;
+        }
+
+        .category-scroll {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            padding-top:10px;
+            scrollbar-width: none;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-item {
+            flex-shrink: 0;
+            padding: 12px 22px;
+            border-radius: 999px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .category-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(139,92,246,.5);
+        }
+
+        .category-item.active {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-light)
+            );
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--glow-primary);
+        }
+
+        .category-count {
+            font-size: .8rem;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.12);
+        }
+
+        [data-theme="light"] .category-item {
+            background: white;
+            border-color: rgba(15,23,42,.08);
         }
     </style>
 </head>
@@ -130,8 +190,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
                 <li class="nav-menu-divider"></li>
                 <li class="nav-menu-actions">
                     <div class="mobile-navbar-actions">
@@ -139,7 +199,7 @@
                             <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                         </button>
-                        <a href="index.html#contact">Get a Quote</a>
+                        <a href="index.html#contact" class="btn btn-gradient btn-sm">Get a Quote</a>
                     </div>
                 </li>
             </ul>
@@ -148,7 +208,7 @@
                     <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 </button>
-                <a href="index.html#contact">Get a Quote</a>
+                <a href="index.html#contact" class="btn btn-gradient btn-sm">Get a Quote</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -167,12 +227,50 @@
     </header>
 
     <!-- Product Listing Section -->
-    <section class="products-section">
+    <section class="products-section p-0">
         <div class="container">
+            <div class="category-scroll">
+
+                <button class="category-item active" data-category="all">
+                    Semua
+                    <span class="category-count">16</span>
+                </button>
+
+                <button class="category-item" data-category="android">
+                    Android
+                    <span class="category-count">1</span>
+                </button>
+
+                <button class="category-item" data-category="saas">
+                    SaaS
+                    <span class="category-count">3</span>
+                </button>
+
+                <button class="category-item" data-category="enterprise">
+                    Enterprise
+                    <span class="category-count">5</span>
+                </button>
+
+                <button class="category-item" data-category="compro">
+                    Company Profile
+                    <span class="category-count">2</span>
+                </button>
+
+                <button class="category-item" data-category="consulting">
+                    Consulting
+                    <span class="category-count">4</span>
+                </button>
+
+                <button class="category-item" data-category="education">
+                    Education
+                    <span class="category-count">1</span>
+                </button>
+
+            </div>
             <!-- Grid -->
             <div class="product-grid">
                 <!-- Product 0: Konsultasi Skripsi (Hilight) -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="education">
                     <div class="portfolio-image">
                         <span class="product-badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Best Seller</span>
                         <img src="assets/images/skripsi.png" alt="Konsultasi Skripsi" loading="lazy">
@@ -188,7 +286,6 @@
                             Pendampingan intensif pembuatan aplikasi dan penulisan skripsi dari nol hingga sidang. 
                             Dibimbing langsung oleh mentor expert, bukan sekadar jasa, tapi partner sampai kamu lulus.
                         </p>
-                        <div class="product-price">Mulai Rp 100.000</div>
                         <div class="product-actions">
                             <a href="https://wa.me/6281297573477?text=Halo%20saya%20tertarik%20dengan%20layanan%20Mentoring%20Skripsi.%20Boleh%20konsultasi%20terlebih%20dahulu%3F"
                             class="btn btn-gradient btn-sm" target="_blank">
@@ -203,8 +300,35 @@
                     </div>
                 </div>
 
+                <!-- Product 1: PosKas -->
+                <div class="portfolio-card glass product-card" data-category="android">
+                    <div class="portfolio-image">
+                        <span class="product-badge">Top Rated</span>
+                        <img src="assets/images/poskas.png" alt="PosKas Android POS" loading="lazy">
+                    </div>
+
+                    <div class="portfolio-info"><div class="portfolio-tags"><span>Kotlin Native</span><span>Android POS</span><span>Payment</span> </div>
+                        <h3>PosKas - Android POS System</h3>
+                        <p>
+                            Aplikasi kasir Android modern untuk UMKM, cafe, restoran, dan toko retail 
+                            dengan fitur transaksi cepat, manajemen produk, cetak struk Bluetooth, 
+                            multi-payment QRIS/e-wallet, serta dashboard laporan penjualan real-time.
+                        </p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/6281297573477?text=Halo%20saya%20tertarik%20dengan%20produk%20PosKas%20Android%20POS.%20Boleh%20minta%20info%20lebih%20lanjut%20terkait%20fitur%20dan%20harga%3F" 
+                                class="btn btn-gradient btn-sm" 
+                                target="_blank">
+                                    <span>Beli Sekarang</span>
+                            </a>
+                            <a href="coming-soon.html" class="btn btn-outline btn-sm" target="_blank">
+                                <span>Preview</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Product 1: Invio -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <span class="product-badge">Top Rated</span>
                         <img src="assets/images/invio.png" alt="Invio" loading="lazy">
@@ -213,7 +337,6 @@
                         <div class="portfolio-tags"><span>Django</span><span>Python</span><span>Inventory</span></div>
                         <h3>Invio - Inventory System</h3>
                         <p>Sistem manajemen inventaris berbasis Django dengan fitur lengkap: tracking stok, manajemen gudang, dan laporan analitik otomatis.</p>
-                        <div class="product-price">Rp 4.500.000</div>
                         <div class="product-actions">
                             <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/Invio/INVIO_CATALOG.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -222,7 +345,7 @@
                 </div>
 
                 <!-- Product 2: Tumbuh (POS) -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <span class="product-badge">Enterprise</span>
                         <img src="assets/images/tumbuh-pos.png" alt="Tumbuh POS" loading="lazy">
@@ -231,7 +354,6 @@
                         <div class="portfolio-tags"><span>Django + DRF</span><span>React/Vue</span><span>Redis</span></div>
                         <h3>Tumbuh - Advanced POS</h3>
                         <p>Point of Sale modern dengan tech stack enterprise: Django DRF, PostgreSQL, Redis, Celery, dan Frontend React/Vue.</p>
-                        <div class="product-price">Rp 7.500.000</div>
                         <div class="product-actions">
                             <a href="#" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/Tumbuh/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -240,7 +362,7 @@
                 </div>
 
                 <!-- Product 3: Toline -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <img src="assets/images/toline.png" alt="Toline Ecommerce" loading="lazy">
                     </div>
@@ -248,7 +370,7 @@
                         <div class="portfolio-tags"><span>Pure CSS</span><span>Vanilla JS</span><span>No Libs</span></div>
                         <h3>Toline - Ecommerce Frontend</h3>
                         <p>Frontend ultra-ringan: System fonts only, CSS gradient placeholders, Inline SVGs, tanpa framework/library (Pure CSS & Vanilla JS).</p>
-                        <div class="product-price">Rp 1.200.000</div>
+                        
                         <div class="product-actions">
                             <a href="wa" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/toline (eccommerce)/katalog-ecommerce.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -257,7 +379,7 @@
                 </div>
 
                 <!-- Product 4: Compro Manufaktur -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="compro">
                     <div class="portfolio-image">
                         <img src="assets/images/c.manufaktur.png" alt="Manufaktur Compro" loading="lazy">
                     </div>
@@ -265,7 +387,6 @@
                         <div class="portfolio-tags"><span>Company Profile</span><span>Manufacturing</span></div>
                         <h3>Template Compro Manufaktur</h3>
                         <p>Desain website profesional khusus industri manufaktur untuk menampilkan profil perusahaan dan katalog mesin.</p>
-                        <div class="product-price">Rp 2.000.000</div>
                         <div class="product-actions">
                             <a href="wa.me/6281297573477" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/C.manufaktur/katalog-manufaktur.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -274,7 +395,7 @@
                 </div>
 
                 <!-- Product 5: Compro Ritel -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="compro">
                     <div class="portfolio-image">
                         <img src="assets/images/c.ritel.png" alt="Ritel Compro" loading="lazy">
                     </div>
@@ -282,7 +403,6 @@
                         <div class="portfolio-tags"><span>Company Profile</span><span>Retail</span></div>
                         <h3>Template Compro Ritel</h3>
                         <p>Website company profile modern untuk bisnis ritel, fokus pada branding dan kemudahan akses informasi produk.</p>
-                        <div class="product-price">Rp 1.850.000</div>
                         <div class="product-actions">
                             <a href="wa.me/6281297573477" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/C.ritel/katalog-ritel.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -291,7 +411,7 @@
                 </div>
 
                 <!-- Product 6: Portofolio Personal -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="compro">
                     <div class="portfolio-image">
                         <img src="assets/images/porto.png" alt="Personal Portfolio" loading="lazy">
                         </div>
@@ -299,18 +419,15 @@
                         <div class="portfolio-tags"><span>Personal</span><span>Creative</span></div>
                         <h3>Web Portofolio Personal</h3>
                         <p>Website portofolio minimalis dan elegan untuk profesional/kreator yang ingin membangun personal branding.</p>
-                        <div class="product-price">Rp 950.000</div>
                         <div class="product-actions">
                             <a href="wa.me/6281297573477" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/Porto/katalog-porto.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
                         </div>
                     </div>
                 </div>
-
-                <!-- 6 ADDITIONAL DUMMY PRODUCTS -->
                 
                 <!-- Product 7: SmartHR -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <img src="assets/images/SmartHR.png" alt="SmartHR" loading="lazy">
                     </div>
@@ -318,7 +435,6 @@
                         <div class="portfolio-tags"><span>WebApp</span><span>HRMS</span></div>
                         <h3>SmartHR WebApp</h3>
                         <p>Aplikasi manajemen SDM kustom mulai dari absensi online hingga penggajian (payroll) otomatis.</p>
-                        <div class="product-price">Konsultasi</div>
                         <div class="product-actions">
                             <a href="wa.me/6281297573477" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/SmartHR/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -327,7 +443,7 @@
                 </div>
 
                 <!-- Product 8: FleetManager -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <img src="assets/images/FleetManager.png" alt="FleetManager" loading="lazy">
                     </div>
@@ -335,7 +451,6 @@
                         <div class="portfolio-tags"><span>WebApp</span><span>Logistics</span></div>
                         <h3>FleetManager Pro</h3>
                         <p>Aplikasi web untuk monitoring armada logistik dan manajemen pengiriman secara real-time.</p>
-                        <div class="product-price">Rp 5.200.000</div>
                         <div class="product-actions">
                             <a href="Product/FleetManager/preview.html" class="btn btn-gradient btn-sm"><span>Beli Sekarang</span></a>
                             <a href="Product/FleetManager/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -344,7 +459,7 @@
                 </div>
 
                 <!-- Product 9: IT Audit -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="consulting">
                     <div class="portfolio-image">
                         <img src="assets/images/IT-Audit.png" alt="IT Audit" loading="lazy">
                     </div>
@@ -352,7 +467,6 @@
                         <div class="portfolio-tags"><span>Konsultasi</span><span>Security</span></div>
                         <h3>IT Audit & Security</h3>
                         <p>Layanan audit infrastruktur teknologi dan keamanan data untuk memastikan bisnis Anda aman dari ancaman siber.</p>
-                        <div class="product-price">Mulai Rp 3.000.000</div>
                         <div class="product-actions">
                             <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20berkonsultasi%20mengenai%20IT%20Audit%20%26%20Security%20untuk%20bisnis%20saya." class="btn btn-outline btn-sm"><span>Konsultasi</span></a>
                         </div>
@@ -360,7 +474,7 @@
                 </div>
 
                 <!-- Product 10: Digital Transformation -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="consulting">
                     <div class="portfolio-image">
                         <img src="assets/images/Digital-Transformation.png" alt="Digital Transform" loading="lazy">
                     </div>
@@ -368,7 +482,6 @@
                         <div class="portfolio-tags"><span>Konsultasi</span><span>Strategy</span></div>
                         <h3>Digital Transformation Strategy</h3>
                         <p>Bimbingan strategis untuk mendigitalisasi proses bisnis konvensional Anda menjadi sistem yang efisien.</p>
-                        <div class="product-price">Custom</div>
                         <div class="product-actions">
                             <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20ingin%20mendiskusikan%20strategi%20Digital%20Transformation%20untuk%20perusahaan%20saya." class="btn btn-outline btn-sm"><span>Diskusi Project</span></a>
                         </div>
@@ -376,7 +489,7 @@
                 </div>
 
                 <!-- Product 11: Cloud Migration -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="consulting">
                     <div class="portfolio-image">
                         <img src="assets/images/Cloud-Migration.png" alt="Cloud Migration" loading="lazy">
                     </div>
@@ -384,7 +497,6 @@
                         <div class="portfolio-tags"><span>Konsultasi</span><span>Cloud</span></div>
                         <h3>Cloud Migration Service</h3>
                         <p>Layanan migrasi server lokal ke infrastruktur cloud (AWS/GCP/Azure) untuk skalabilitas tinggi.</p>
-                        <div class="product-price">Mulai Rp 2.500.000</div>
                         <div class="product-actions">
                             <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20tertarik%20dengan%20layanan%20Cloud%20Migration.%20Bisa%20bantu%20jelaskan%20prosedurnya%3F" class="btn btn-outline btn-sm"><span>Hubungi Kami</span></a>
                         </div>
@@ -392,7 +504,7 @@
                 </div>
 
                 <!-- Product 12: Custom Script -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="enterprise">
                     <div class="portfolio-image">
                         <img src="assets/images/Custom-Script.png" alt="Custom Script" loading="lazy">
                     </div>
@@ -400,7 +512,6 @@
                         <div class="portfolio-tags"><span>WebApp</span><span>Integration</span></div>
                         <h3>Custom Script Integration</h3>
                         <p>Pembuatan script integrasi antar aplikasi (API) atau otomasi tugas rutin untuk efisiensi kerja.</p>
-                        <div class="product-price">Rp 1.500.000</div>
                         <div class="product-actions">
                             <a href="coming-soon.html" class="btn btn-gradient btn-sm"><span>Pesan Sekarang</span></a>
                         </div>
@@ -408,16 +519,15 @@
                 </div>
 
                 <!-- Product 13: AI Content Suite (SaaS) -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="saas">
                     <div class="portfolio-image">
                         <span class="product-badge">Trending</span>
-                        <img src="assets/images/project-1.webp" alt="AI Content Suite" loading="lazy">
+                        <img src="assets/images/ContentSuite.png" alt="AI Content Suite" loading="lazy">
                         </div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span>SaaS</span><span>AI / LLM</span></div>
                         <h3>AI Content Suite Pro</h3>
                         <p>Platform SaaS untuk pembuatan konten otomatis (copywriting, SEO, medsos) menggunakan API GPT-4/Gemini.</p>
-                        <div class="product-price">Subscription / License</div>
                         <div class="product-actions">
                             <a href="coming-soon.html" class="btn btn-gradient btn-sm"><span>Mulai Berlangganan</span></a>
                             <a href="Product/AI%20Content%20Suite/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -426,15 +536,14 @@
                 </div>
 
                 <!-- Product 14: ZenTask (Collaboration SaaS) -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="saas">
                     <div class="portfolio-image">
-                        <img src="assets/images/dashboard-mockup.webp" alt="ZenTask" loading="lazy">
+                        <img src="assets/images/ZenTask.png" alt="ZenTask" loading="lazy">
                         </div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span>SaaS</span><span>Management</span></div>
                         <h3>ZenTask Collaboration</h3>
                         <p>Alat manajemen proyek tim dengan fitur Kanban, Gantt Chart, dan kolaborasi real-time untuk efisiensi remote work.</p>
-                        <div class="product-price">Mulai Rp 499k/bln</div>
                         <div class="product-actions">
                             <a href="coming-soon.html" class="btn btn-gradient btn-sm"><span>Coba Gratis</span></a>
                             <a href="Product/ZenTask/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -443,16 +552,15 @@
                 </div>
 
                 <!-- Product 15: SupportFlow (Helpdesk SaaS) -->
-                <div class="portfolio-card glass product-card">
+                <div class="portfolio-card glass product-card" data-category="saas">
                     <div class="portfolio-image">
                         <span class="product-badge">Popular</span>
-                        <img src="assets/images/project-3.webp" alt="SupportFlow" loading="lazy">
+                        <img src="assets/images/SupportFlow.png" alt="SupportFlow" loading="lazy">
                         </div>
                     <div class="portfolio-info">
                         <div class="portfolio-tags"><span>SaaS</span><span>Customer Support</span></div>
                         <h3>SupportFlow AI Helpdesk</h3>
                         <p>Sistem helpdesk omnichannel terintegrasi Chatbot AI untuk menangani tiket bantuan pelanggan secara otomatis 24/7.</p>
-                        <div class="product-price">Custom Quote</div>
                         <div class="product-actions">
                             <a href="https://wa.me/6281297573477?text=Halo%20Tim%20Sundcode,%20saya%20tertarik%20dengan%20layanan%20Mentoring%20%26%20Konsultasi%20Skripsi.%20Mohon%20info%20lebih%20lanjut%20mengenai%20prosedur%20pendaftarannya." class="btn btn-gradient btn-sm"><span>Daftar Sekarang</span></a>
                             <a href="Product/SupportFlow/preview.html" class="btn btn-outline btn-sm" target="_blank"><span>Preview</span></a>
@@ -531,5 +639,38 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        const categoryItems = document.querySelectorAll(".category-item");
+        const products = document.querySelectorAll(".product-card");
+
+        categoryItems.forEach(item => {
+            item.addEventListener("click", () => {
+
+                categoryItems.forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+                item.classList.add("active");
+
+                const category = item.dataset.category;
+
+                products.forEach(product => {
+
+                    if(category === "all") {
+                        product.style.display = "flex";
+                        return;
+                    }
+
+                    if(product.dataset.category === category) {
+                        product.style.display = "flex";
+                    } else {
+                        product.style.display = "none";
+                    }
+
+                });
+
+            });
+        });
+    </script>
 </body>
 </html>
